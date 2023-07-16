@@ -1,3 +1,5 @@
+package scheduler;
+
 import main.entities.Customer;
 import main.enums.ServiceLevelEnum;
 import main.scheduler.ServiceScheduler;

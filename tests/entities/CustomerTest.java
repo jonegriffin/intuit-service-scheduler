@@ -1,3 +1,5 @@
+package entities;
+
 import main.entities.Customer;
 import main.enums.ServiceLevelEnum;
 import org.junit.Test;
