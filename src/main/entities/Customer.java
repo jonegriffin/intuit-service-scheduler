@@ -1,5 +1,7 @@
 package main.entities;
 
+import main.enums.ServiceLevelEnum;
+
 public class Customer {
 
     // customer's phone number
@@ -9,14 +11,13 @@ public class Customer {
     private final String name;
 
     // customer's service level (either regular or VIP, VIP takes priority over regular)
-    // TODO perhaps make into an enum?
-    private final Integer serviceLevel;
+    private final ServiceLevelEnum serviceLevel;
 
     // ID of ticket customer will be served by
     // perhaps use Linux epoch?
     private long ticketNumber;
 
-    public Customer(String phoneNumber, String name, Integer serviceLevel) {
+    public Customer(String phoneNumber, String name, ServiceLevelEnum serviceLevel) {
         this.phoneNumber = phoneNumber;
         this.name = name;
         this.serviceLevel = serviceLevel;
@@ -30,11 +31,12 @@ public class Customer {
         return this.name;
     }
 
-    // should I just make this return a bool instead and rename to something like isVIP()?
     public Integer getServiceLevel() {
-        return this.serviceLevel;
+        return this.serviceLevel.serviceLevel;
     }
 
+    // assign ticket number from system clock
+    // will be valid for ~300 years
     public void setTicketNumber() {
         this.ticketNumber = System.nanoTime();
     }
