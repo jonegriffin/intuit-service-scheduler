@@ -1,4 +1,5 @@
 import main.entities.Customer;
+import main.enums.ServiceLevelEnum;
 import main.helpers.CustomerComparator;
 import org.junit.Test;
 
@@ -14,10 +15,9 @@ public class CustomerComparatorTest {
         CustomerComparator comparator = new CustomerComparator();
 
         String phoneNumber = "555-555-5555";
-        Integer serviceLevel = 1;
 
-        Customer customer1 = new Customer(phoneNumber, "John Doe", serviceLevel);
-        Customer customer2 = new Customer(phoneNumber, "Jane Doe", serviceLevel);
+        Customer customer1 = new Customer(phoneNumber, "John Doe", ServiceLevelEnum.VIP);
+        Customer customer2 = new Customer(phoneNumber, "Jane Doe", ServiceLevelEnum.VIP);
 
         customer1.setTicketNumber();
         customer2.setTicketNumber();
@@ -31,11 +31,8 @@ public class CustomerComparatorTest {
 
         String phoneNumber = "555-555-5555";
 
-        Integer serviceLevelCustomer1 = 2;
-        Integer serviceLevelCustomer2 = 1;
-
-        Customer customer1 = new Customer(phoneNumber, "John Doe", serviceLevelCustomer1);
-        Customer customer2 = new Customer(phoneNumber, "John Doe", serviceLevelCustomer2);
+        Customer customer1 = new Customer(phoneNumber, "John Doe", ServiceLevelEnum.NORMAL);
+        Customer customer2 = new Customer(phoneNumber, "John Doe", ServiceLevelEnum.VIP);
 
         customer1.setTicketNumber();
         customer2.setTicketNumber();
@@ -50,11 +47,11 @@ public class CustomerComparatorTest {
 
         PriorityQueue<Customer> queue = new PriorityQueue<>(new CustomerComparator());
 
-        Customer normalCustomer1 = new Customer(phoneNumber, "John Doe", 2);
-        Customer normalCustomer2 = new Customer(phoneNumber, "Jane Doe", 2);
+        Customer normalCustomer1 = new Customer(phoneNumber, "John Doe", ServiceLevelEnum.NORMAL);
+        Customer normalCustomer2 = new Customer(phoneNumber, "Jane Doe", ServiceLevelEnum.NORMAL);
 
-        Customer vipCustomer1 = new Customer(phoneNumber, "John Smith", 1);
-        Customer vipCustomer2 = new Customer(phoneNumber, "Jane Smith", 1);
+        Customer vipCustomer1 = new Customer(phoneNumber, "John Smith", ServiceLevelEnum.VIP);
+        Customer vipCustomer2 = new Customer(phoneNumber, "Jane Smith", ServiceLevelEnum.VIP);
 
         normalCustomer2.setTicketNumber();
         normalCustomer1.setTicketNumber();

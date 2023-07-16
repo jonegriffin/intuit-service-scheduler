@@ -1,4 +1,5 @@
 import main.entities.Customer;
+import main.enums.ServiceLevelEnum;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -10,9 +11,9 @@ public class CustomerTest {
         String customerName = "John Doe";
         String customerPhoneNumber = "555-555-5555";
 
-        Integer customerServiceLevel = 1;
+        Integer customerServiceLevel = ServiceLevelEnum.VIP.serviceLevel;
 
-        Customer customer = new Customer(customerPhoneNumber, customerName, customerServiceLevel);
+        Customer customer = new Customer(customerPhoneNumber, customerName, ServiceLevelEnum.VIP);
 
         assertEquals(customerName, customer.getName());
         assertEquals(customerPhoneNumber, customer.getPhoneNumber());
