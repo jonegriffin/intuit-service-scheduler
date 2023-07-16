@@ -27,6 +27,12 @@ public class ServiceScheduler {
 
     // fetches next customer in queue
     public Customer getNextCustomer() {
+
+        // re: part 3, wasn' quite sure exactly what it was asking. Maintaining a 2:1 VIP:Normal customer processing ratio
+        // seems to contradict with what is required in part 2, where all VIP customers must be served before normal customers.
+        // I did have some initial ideas about how to create this ratio (such as keeping track of the number of each customer served,
+        // and waiting for more customers of either type to be checked in and processed before continuing in order to maintain this ratio).
+        // We can discuss this.
         return this.queue.poll();
     }
 }
